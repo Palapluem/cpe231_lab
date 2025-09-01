@@ -1,6 +1,6 @@
-package th.ac.kmutt.cpe.algorithm.wisit.lab.lab4;
+package th.ac.kmutt.cpe.algorithm.wisit.searching;
 
-public class Beads {
+public class BeadSearch {
     public static int countSubStrings(String beads, char A, char B, int p) {
         int n = beads.length();
         int count = 0;

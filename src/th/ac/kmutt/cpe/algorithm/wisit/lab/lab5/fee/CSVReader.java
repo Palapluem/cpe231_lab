@@ -383,11 +383,11 @@ public class CSVReader {
                 if (rate.isZoneAvailable(zone)) {
                     return rate.getZoneCost(zone) + " baht";
                 } else {
-                    return "ไม่สามารถจัดส่งได้ (N/A)";
+                    return "cannot be shipped to Zone (N/A)";
                 }
             }
         }
-        return "ไม่พบข้อมูลราคา";
+        return "Not found cost";
     }
 
     // Helper method to find world cost for a given weight and zone (สำหรับการคำนวณ)

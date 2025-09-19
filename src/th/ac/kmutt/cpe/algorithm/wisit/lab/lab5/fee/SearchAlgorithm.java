@@ -3,7 +3,8 @@ package th.ac.kmutt.cpe.algorithm.wisit.lab.lab5.fee;
 import th.ac.kmutt.cpe.algorithm.wisit.searching.BinarySearch;
 
 public enum SearchAlgorithm {
-    BINARY_SEARCH(1, "Binary Search", "ค้นหาแบบ Binary Search - เรียงลำดับแล้วค้นหาแบบแบ่งครึ่ง O(log n)");
+    BINARY_SEARCH(1, "Binary Search",
+            "Binary Search - searches a sorted list by repeatedly dividing the search interval in half.");
 
     private final int id;
     private final String name;

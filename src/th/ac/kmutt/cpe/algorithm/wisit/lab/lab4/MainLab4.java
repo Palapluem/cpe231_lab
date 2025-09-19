@@ -1,10 +1,8 @@
-package th.ac.kmutt.cpe.algorithm.wisit;
+package th.ac.kmutt.cpe.algorithm.wisit.lab.lab4;
 
 import java.util.Scanner;
 
-import th.ac.kmutt.cpe.algorithm.wisit.searching.BeadSearch;
-
-public class Main {
+public class MainLab4 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String beads = sc.nextLine().trim();

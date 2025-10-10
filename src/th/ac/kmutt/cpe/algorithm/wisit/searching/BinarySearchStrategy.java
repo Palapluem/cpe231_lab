@@ -14,6 +14,9 @@ public class BinarySearchStrategy implements FeeSearchStrategy {
         return "Binary Search";
     }
 
+    /**
+     * ค้นหาราคา EMS Domestic ด้วย Binary Search
+     */
     @Override
     public int findDomesticCost(List<CSVReader.EMSDomesticRate> rates, int weight) {
         if (rates == null || rates.isEmpty()) {

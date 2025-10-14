@@ -1,9 +1,9 @@
-package th.ac.kmutt.cpe.algorithm.wisit.lab.lab6.binPacking;
+package th.ac.kmutt.cpe.algorithm.wisit.lab.lab7.binPackingAddMethod;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class FirstFitAlgorithm implements BinPackingAlgorithm {
+public class BestFitAlgorithm implements BinPackingAlgorithm {
 
     @Override
     public BinPackingResult pack(List<BoxSize> boxes, double binWidth, double binHeight) {
@@ -18,18 +18,23 @@ public class FirstFitAlgorithm implements BinPackingAlgorithm {
         List<BoxSize> unpackedItems = new ArrayList<>();
 
         for (BoxSize box : sortedBoxes) {
-            boolean placed = false;
+            int bestBinIndex = -1;
+            double minRemainingArea = Double.MAX_VALUE;
 
-            for (Bin bin : bins) {
+            for (int i = 0; i < bins.size(); i++) {
+                Bin bin = bins.get(i);
                 if (bin.canFit(box) && bin.canFitDimensions(box)) {
-                    if (bin.addBox(box)) {
-                        placed = true;
-                        break;
+                    double remainingAfterPlacement = bin.getRemainingArea() - box.getArea();
+                    if (remainingAfterPlacement < minRemainingArea) {
+                        bestBinIndex = i;
+                        minRemainingArea = remainingAfterPlacement;
                     }
                 }
             }
 
-            if (!placed) {
+            if (bestBinIndex != -1) {
+                bins.get(bestBinIndex).addBox(box);
+            } else {
                 Bin newBin = new Bin(binWidth, binHeight);
                 if (newBin.addBox(box)) {
                     bins.add(newBin);
@@ -39,7 +44,6 @@ public class FirstFitAlgorithm implements BinPackingAlgorithm {
                 }
             }
         }
-
-        return new BinPackingResult(bins, unpackedItems, "First-Fit Decreasing");
+        return new BinPackingResult(bins, unpackedItems, "Best Fit Decreasing Algorithm");
     }
 }

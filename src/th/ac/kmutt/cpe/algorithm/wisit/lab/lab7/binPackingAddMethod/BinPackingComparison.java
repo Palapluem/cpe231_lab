@@ -1,4 +1,4 @@
-package th.ac.kmutt.cpe.algorithm.wisit.lab.lab6.binPacking;
+package th.ac.kmutt.cpe.algorithm.wisit.lab.lab7.binPackingAddMethod;
 
 import java.util.ArrayList;
 import java.util.List;

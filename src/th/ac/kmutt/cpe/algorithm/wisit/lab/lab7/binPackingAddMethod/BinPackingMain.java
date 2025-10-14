@@ -1,4 +1,4 @@
-package th.ac.kmutt.cpe.algorithm.wisit.lab.lab6.binPacking;
+package th.ac.kmutt.cpe.algorithm.wisit.lab.lab7.binPackingAddMethod;
 
 import java.util.List;
 import java.util.Scanner;
@@ -25,9 +25,30 @@ public class BinPackingMain {
             double binArea = binWidth * binHeight;
             System.out.printf("Custom bin size: %.1f x %.1f (Total area: %.2f)\n\n", binWidth, binHeight, binArea);
 
-            BestFitAlgorithm algorithm = new BestFitAlgorithm();
-            BinPackingResult result = algorithm.pack(boxes, binWidth, binHeight);
-            showDetailedResults(boxes, result, binWidth, binHeight);
+            System.out.println("Select packing algorithm:");
+            System.out.println("1. Best-Fit Decreasing Algorithm");
+            System.out.println("2. First-Fit Decreasing Algorithm");
+            System.out.println("3. Compare both algorithms");
+            System.out.print("Choose algorithm (1-3): ");
+            int algorithmChoice = scanner.nextInt();
+
+            if (algorithmChoice == 3) {
+                compareBothAlgorithms(boxes, binWidth, binHeight);
+            } else {
+                BinPackingAlgorithm algorithm;
+                switch (algorithmChoice) {
+                    case 2:
+                        algorithm = new FirstFitAlgorithm();
+                        break;
+                    case 1:
+                    default:
+                        algorithm = new BestFitAlgorithm();
+                        break;
+                }
+
+                BinPackingResult result = algorithm.pack(boxes, binWidth, binHeight);
+                showDetailedResults(boxes, result, binWidth, binHeight);
+            }
 
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
@@ -62,7 +83,7 @@ public class BinPackingMain {
         }
 
         try {
-            String filePath = "src/th/ac/kmutt/cpe/algorithm/wisit/lab/lab6/binPacking/" + filename;
+            String filePath = "src/th/ac/kmutt/cpe/algorithm/wisit/lab/lab7/binPackingAddMethod/" + filename;
             return BoxSizeReader.readFromCSV(filePath);
         } catch (Exception e) {
             System.out.println("Error reading file: " + e.getMessage());
@@ -86,7 +107,9 @@ public class BinPackingMain {
         System.out.println("==================================================");
         System.out.println("PACKING RESULTS");
         System.out.println("==================================================");
+        System.out.println("Algorithm used: " + result.getAlgorithmUsed());
         System.out.println("Bins used: " + result.getBins().size());
+        System.out.printf("Average utilization: %.1f%%\n", result.getAverageUtilization());
         System.out.println();
 
         // Display unpacked items details
@@ -134,5 +157,33 @@ public class BinPackingMain {
         System.out.println("==================================================");
         System.out.println("UNPACKED BOXES COUNT: " + result.getUnpackedItems().size());
         System.out.printf("TOTAL REMAINING AREA: %.2f\n", totalRemainingArea);
+    }
+
+    private static void compareBothAlgorithms(List<BoxSize> boxes, double binWidth, double binHeight) {
+        System.out.println("\n==================================================");
+        System.out.println("ALGORITHM COMPARISON");
+        System.out.println("==================================================");
+
+        BestFitAlgorithm bestFit = new BestFitAlgorithm();
+        long startTime = System.nanoTime();
+        BinPackingResult bestFitResult = bestFit.pack(boxes, binWidth, binHeight);
+        long endTime = System.nanoTime();
+        double bestFitTime = (endTime - startTime) / 1_000_000.0;
+
+        FirstFitAlgorithm firstFit = new FirstFitAlgorithm();
+        startTime = System.nanoTime();
+        BinPackingResult firstFitResult = firstFit.pack(boxes, binWidth, binHeight);
+        endTime = System.nanoTime();
+        double firstFitTime = (endTime - startTime) / 1_000_000.0;
+
+        System.out.printf("%-22s | %-10s | %-12s | %-10s\n", "Algorithm", "Bins Used", "Utilization", "Time(ms)");
+        System.out.println("------------------------------------------------------------------");
+        System.out.printf("%-22s | %-10d | %-11.1f%% | %-10.3f\n", "Best-Fit Decreasing",
+                bestFitResult.getBins().size(),
+                bestFitResult.getAverageUtilization(), bestFitTime);
+        System.out.printf("%-22s | %-10d | %-11.1f%% | %-10.3f\n", "First-Fit Decreasing",
+                firstFitResult.getBins().size(),
+                firstFitResult.getAverageUtilization(), firstFitTime);
+        System.out.println("------------------------------------------------------------------");
     }
 }

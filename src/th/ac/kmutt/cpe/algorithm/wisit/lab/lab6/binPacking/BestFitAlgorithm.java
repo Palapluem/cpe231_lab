@@ -8,11 +8,7 @@ public class BestFitAlgorithm implements BinPackingAlgorithm {
     @Override
     public BinPackingResult pack(List<BoxSize> boxes, double binWidth, double binHeight) {
         List<BoxSize> sortedBoxes = new ArrayList<>(boxes);
-        sortedBoxes.sort((b1, b2) -> {
-            double area1 = b1.getWidth() * b1.getHeight();
-            double area2 = b2.getWidth() * b2.getHeight();
-            return Double.compare(area2, area1);
-        });
+        sortedBoxes.sort((b1, b2) -> Double.compare(b2.getArea(), b1.getArea()));
 
         List<Bin> bins = new ArrayList<>();
         List<BoxSize> unpackedItems = new ArrayList<>();
@@ -40,10 +36,9 @@ public class BestFitAlgorithm implements BinPackingAlgorithm {
                     bins.add(newBin);
                 } else {
                     unpackedItems.add(box);
-                    System.out.println("Box " + box.getWidth() + "x" + box.getHeight() + " could not be placed");
                 }
             }
         }
-        return new BinPackingResult(bins, unpackedItems, "Best Fit Decreasing Algorithm");
+        return new BinPackingResult(bins, unpackedItems, "Best Fit Algorithm");
     }
 }

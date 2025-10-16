@@ -189,13 +189,13 @@ public class BinPackingMain {
             firstFitTotalRemaining += bin.getRemainingArea();
         }
 
-        System.out.printf("%-22s | %-10s | %-15s | %-10s\n", "Algorithm", "Bins Used", "Total Remaining Area",
+        System.out.printf("%-22s | %-10s | %-20s | %-10s\n", "Algorithm", "Bins Used", "Total Remaining Area",
                 "Time(ms)");
         System.out.println("------------------------------------------------------------------------");
-        System.out.printf("%-22s | %-10d | %-15.2f | %-10.3f\n", "Best-Fit Decreasing",
+        System.out.printf("%-22s | %-10d | %-20.2f | %-10.3f\n", "Best-Fit Decreasing",
                 bestFitResult.getBins().size(),
                 bestFitTotalRemaining, bestFitTime);
-        System.out.printf("%-22s | %-10d | %-15.2f | %-10.3f\n", "First-Fit Decreasing",
+        System.out.printf("%-22s | %-10d | %-20.2f | %-10.3f\n", "First-Fit Decreasing",
                 firstFitResult.getBins().size(),
                 firstFitTotalRemaining, firstFitTime);
         System.out.println("------------------------------------------------------------------------");

@@ -3,10 +3,16 @@ package th.ac.kmutt.cpe.algorithm.wisit.lab.lab7.binPackingAddMethod;
 public class BoxSize implements Comparable<BoxSize> {
     private double width;
     private double height;
+    private double x;
+    private double y;
+    private boolean placed;
 
     public BoxSize(double width, double height) {
         this.width = width;
         this.height = height;
+        this.x = -1;
+        this.y = -1;
+        this.placed = false;
     }
 
     public double getWidth() {
@@ -21,9 +27,39 @@ public class BoxSize implements Comparable<BoxSize> {
         return width * height;
     }
 
+    public double getX() {
+        return x;
+    }
+
+    public double getY() {
+        return y;
+    }
+
+    public boolean isPlaced() {
+        return placed;
+    }
+
+    public void setPosition(double x, double y) {
+        this.x = x;
+        this.y = y;
+        this.placed = true;
+    }
+
+    public void resetPosition() {
+        this.x = -1;
+        this.y = -1;
+        this.placed = false;
+    }
+
     @Override
     public String toString() {
-        return String.format("BoxSize{width=%.1f, height=%.1f, area=%.2f}", width, height, getArea());
+        if (placed) {
+            return String.format("BoxSize{width=%.1f, height=%.1f, area=%.2f, pos=(%.1f,%.1f)}",
+                    width, height, getArea(), x, y);
+        } else {
+            return String.format("BoxSize{width=%.1f, height=%.1f, area=%.2f, pos=NOT_PLACED}",
+                    width, height, getArea());
+        }
     }
 
     @Override

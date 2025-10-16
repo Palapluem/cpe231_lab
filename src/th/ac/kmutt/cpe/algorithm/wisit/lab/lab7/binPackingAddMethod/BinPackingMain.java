@@ -112,7 +112,6 @@ public class BinPackingMain {
         System.out.printf("Average utilization: %.1f%%\n", result.getAverageUtilization());
         System.out.println();
 
-        // Display unpacked items details
         System.out.println("==================================================");
         System.out.println("UNPACKED BOXES");
         System.out.println("==================================================");
@@ -130,11 +129,10 @@ public class BinPackingMain {
         System.out.println("\n==================================================");
         System.out.println("BIN DETAILS AND REMAINING AREA");
         System.out.println("==================================================");
-        double totalRemainingArea = 0;
+
         for (int i = 0; i < result.getBins().size(); i++) {
             Bin bin = result.getBins().get(i);
             double remainingArea = bin.getRemainingArea();
-            totalRemainingArea += remainingArea;
 
             System.out.printf("Bin %d:\n", i + 1);
 
@@ -143,8 +141,8 @@ public class BinPackingMain {
             double totalUsedArea = 0.0;
             for (int j = 0; j < boxesInBin.size(); j++) {
                 BoxSize box = boxesInBin.get(j);
-                System.out.printf("    Box %d: Width=%.1f, Height=%.1f, Area=%.2f\n",
-                        j + 1, box.getWidth(), box.getHeight(), box.getArea());
+                System.out.printf("    Box %d: Width=%.1f, Height=%.1f, Area=%.2f, Position=(%.1f,%.1f)\n",
+                        j + 1, box.getWidth(), box.getHeight(), box.getArea(), box.getX(), box.getY());
                 totalUsedArea += box.getArea();
             }
 
@@ -155,8 +153,13 @@ public class BinPackingMain {
         System.out.println("\n==================================================");
         System.out.println("SUMMARY - BIN PACKING");
         System.out.println("==================================================");
-        System.out.println("UNPACKED BOXES COUNT: " + result.getUnpackedItems().size());
-        System.out.printf("TOTAL REMAINING AREA: %.2f\n", totalRemainingArea);
+        System.out.println("PACKED BIN TOTAL: " + result.getBins().size());
+        System.out.println("PACKED BOXES TOTAL: " + (boxes.size() - result.getUnpackedItems().size()));
+
+        for (int i = 0; i < result.getBins().size(); i++) {
+            Bin bin = result.getBins().get(i);
+            System.out.printf("BIN %d REMAINING AREA: %.2f\n", i + 1, bin.getRemainingArea());
+        }
     }
 
     private static void compareBothAlgorithms(List<BoxSize> boxes, double binWidth, double binHeight) {
@@ -176,14 +179,40 @@ public class BinPackingMain {
         endTime = System.nanoTime();
         double firstFitTime = (endTime - startTime) / 1_000_000.0;
 
-        System.out.printf("%-22s | %-10s | %-12s | %-10s\n", "Algorithm", "Bins Used", "Utilization", "Time(ms)");
-        System.out.println("------------------------------------------------------------------");
-        System.out.printf("%-22s | %-10d | %-11.1f%% | %-10.3f\n", "Best-Fit Decreasing",
+        double bestFitTotalRemaining = 0;
+        for (Bin bin : bestFitResult.getBins()) {
+            bestFitTotalRemaining += bin.getRemainingArea();
+        }
+
+        double firstFitTotalRemaining = 0;
+        for (Bin bin : firstFitResult.getBins()) {
+            firstFitTotalRemaining += bin.getRemainingArea();
+        }
+
+        System.out.printf("%-22s | %-10s | %-15s | %-10s\n", "Algorithm", "Bins Used", "Total Remaining Area",
+                "Time(ms)");
+        System.out.println("------------------------------------------------------------------------");
+        System.out.printf("%-22s | %-10d | %-15.2f | %-10.3f\n", "Best-Fit Decreasing",
                 bestFitResult.getBins().size(),
-                bestFitResult.getAverageUtilization(), bestFitTime);
-        System.out.printf("%-22s | %-10d | %-11.1f%% | %-10.3f\n", "First-Fit Decreasing",
+                bestFitTotalRemaining, bestFitTime);
+        System.out.printf("%-22s | %-10d | %-15.2f | %-10.3f\n", "First-Fit Decreasing",
                 firstFitResult.getBins().size(),
-                firstFitResult.getAverageUtilization(), firstFitTime);
-        System.out.println("------------------------------------------------------------------");
+                firstFitTotalRemaining, firstFitTime);
+        System.out.println("------------------------------------------------------------------------");
+
+        System.out.println("\nDETAILED BIN COMPARISON:");
+        System.out.println("Best-Fit Decreasing - Remaining area per bin:");
+        for (int i = 0; i < bestFitResult.getBins().size(); i++) {
+            Bin bin = bestFitResult.getBins().get(i);
+            System.out.printf("  Bin %d: %.2f remaining\n", i + 1, bin.getRemainingArea());
+        }
+        System.out.printf("  Total Remaining area: %.2f\n\n", bestFitTotalRemaining);
+
+        System.out.println("First-Fit Decreasing - Remaining area per bin:");
+        for (int i = 0; i < firstFitResult.getBins().size(); i++) {
+            Bin bin = firstFitResult.getBins().get(i);
+            System.out.printf("  Bin %d: %.2f remaining\n", i + 1, bin.getRemainingArea());
+        }
+        System.out.printf("  Total Remaining area: %.2f\n", firstFitTotalRemaining);
     }
 }

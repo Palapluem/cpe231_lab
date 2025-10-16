@@ -89,7 +89,6 @@ public class BinPackingMain {
         System.out.println("Bins used: " + result.getBins().size());
         System.out.println();
 
-        // Display unpacked items details
         System.out.println("==================================================");
         System.out.println("UNPACKED BOXES");
         System.out.println("==================================================");
@@ -107,11 +106,10 @@ public class BinPackingMain {
         System.out.println("\n==================================================");
         System.out.println("BIN DETAILS AND REMAINING AREA");
         System.out.println("==================================================");
-        double totalRemainingArea = 0;
+
         for (int i = 0; i < result.getBins().size(); i++) {
             Bin bin = result.getBins().get(i);
             double remainingArea = bin.getRemainingArea();
-            totalRemainingArea += remainingArea;
 
             System.out.printf("Bin %d:\n", i + 1);
 
@@ -120,8 +118,8 @@ public class BinPackingMain {
             double totalUsedArea = 0.0;
             for (int j = 0; j < boxesInBin.size(); j++) {
                 BoxSize box = boxesInBin.get(j);
-                System.out.printf("    Box %d: Width=%.1f, Height=%.1f, Area=%.2f\n",
-                        j + 1, box.getWidth(), box.getHeight(), box.getArea());
+                System.out.printf("    Box %d: Width=%.1f, Height=%.1f, Area=%.2f, Position=(%.1f,%.1f)\n",
+                        j + 1, box.getWidth(), box.getHeight(), box.getArea(), box.getX(), box.getY());
                 totalUsedArea += box.getArea();
             }
 
@@ -132,7 +130,12 @@ public class BinPackingMain {
         System.out.println("\n==================================================");
         System.out.println("SUMMARY - BIN PACKING");
         System.out.println("==================================================");
-        System.out.println("UNPACKED BOXES COUNT: " + result.getUnpackedItems().size());
-        System.out.printf("TOTAL REMAINING AREA: %.2f\n", totalRemainingArea);
+        System.out.println("PACKED BIN TOTAL: " + result.getBins().size());
+        System.out.println("PACKED BOXES TOTAL: " + (boxes.size() - result.getUnpackedItems().size()));
+
+        for (int i = 0; i < result.getBins().size(); i++) {
+            Bin bin = result.getBins().get(i);
+            System.out.printf("BIN %d REMAINING AREA: %.2f\n", i + 1, bin.getRemainingArea());
+        }
     }
 }

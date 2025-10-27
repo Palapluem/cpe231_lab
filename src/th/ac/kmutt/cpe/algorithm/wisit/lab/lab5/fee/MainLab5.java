@@ -1,6 +1,5 @@
 package th.ac.kmutt.cpe.algorithm.wisit.lab.lab5.fee;
 
-import th.ac.kmutt.cpe.algorithm.wisit.searching.BinarySearch;
 import java.util.Scanner;
 
 public class MainLab5 {
@@ -43,7 +42,7 @@ public class MainLab5 {
     }
 
     private static void runCalculator(Scanner scanner) {
-        FeeCalculationContext context = new FeeCalculationContext(new BinarySearch());
+        FeeCalculationContext context = new FeeCalculationContext(new BinarySearchFee());
         boolean continueCalculation = true;
 
         while (continueCalculation) {

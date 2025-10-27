@@ -1,7 +1,5 @@
 package th.ac.kmutt.cpe.algorithm.wisit.lab.lab5.fee;
 
-import th.ac.kmutt.cpe.algorithm.wisit.searching.BinarySearch;
-
 public enum SearchAlgorithm {
     BINARY_SEARCH(1, "Binary Search",
             "Binary Search - searches a sorted list by repeatedly dividing the search interval in half.");
@@ -31,7 +29,7 @@ public enum SearchAlgorithm {
     public FeeSearchStrategy createStrategy() {
         switch (this) {
             case BINARY_SEARCH:
-                return new BinarySearch();
+                return new BinarySearchFee();
             default:
                 throw new IllegalArgumentException("Unknown algorithm: " + this);
         }

@@ -3,7 +3,7 @@ package th.ac.kmutt.cpe.algorithm.wisit.lab.PracticeM2;
 import java.util.*;
 import th.ac.kmutt.cpe.algorithm.wisit.sorting.BottomUpMergeSort;
 
-public class BottomUpMergeSortApp {
+public class Q05_BottomUpMergeSortApp {
 
     // Read exactly n integers from the scanner
     private static ArrayList<Integer> readNumbers(Scanner sc, int n) {

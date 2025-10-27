@@ -2,7 +2,7 @@ package th.ac.kmutt.cpe.algorithm.wisit.lab.PracticeM2;
 
 import java.util.ArrayList;
 
-public class NextPermutation {
+public class Q01_NextPermutation {
     public boolean nextPermutation(ArrayList<Integer> arr) {
         int n = arr.size();
 
@@ -69,7 +69,7 @@ public class NextPermutation {
     }
 
     public static void main(String[] args) {
-        NextPermutation np = new NextPermutation();
+        Q01_NextPermutation np = new Q01_NextPermutation();
 
         // Test with n = 3
         int n = 3;

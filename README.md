@@ -18,6 +18,48 @@ java -cp bin th.ac.kmutt.cpe.algorithm.wisit.lab.<folder_and_filename>
 
 ## Available Labs
 
+### Practice Exercise M.2 – Strategies, D&C, and Applications
+
+Compile all M.2 apps:
+
+```bash
+javac -sourcepath src -d bin src\th\ac\kmutt\cpe\algorithm\wisit\lab\PracticeM2\*.java
+```
+
+Run any app (replace <AppClass>):
+
+```bash
+java -cp bin th.ac.kmutt.cpe.algorithm.wisit.lab.PracticeM2.<AppClass>
+```
+
+Available app classes (renamed with question numbers) and I/O notes:
+
+- Q01_NextPermutation
+   - Input: n then n integers. Output: next lexicographic permutation or the first if none.
+- Q02_Android
+   - Input per worksheet; prints the minimal steps/unlock check as specified.
+- Q03_PancakeSort
+   - Input: n then n integers. Output: ascending order on one line.
+- Q04_QuickSelectApp
+   - Input: n, k, then n integers. Output: k-th smallest value.
+- Q05_BottomUpMergeSortApp
+   - Input: n then n integers. Output: ascending order on one line.
+- Q06_QuickSortApp
+   - Input: n then n integers. Output: ascending order on one line.
+- Q07_2DClosestPairApp
+   - Input: n then n pairs x y. Output: minimum distance printed with 3 decimals.
+- Q08_MakeAWish
+   - Input: n then n integers. Output: maximum subarray sum (long).
+- Q09_PresortedUniquenessApp
+   - Input: n then n integers. Output: unique values in ascending order.
+- Q10_HeapSortApp
+   - Input: n then n integers. Output line 1: array after Min-Heap bottom-up heapify; line 2: numbers in descending order.
+- Q11_Lottery
+   - Input: m n, then student ticket string (length m) and prize pattern (length n).
+   - Output: YES <shiftCount> <firstIndex> if matched, else NO <shiftCount> -1.
+- Q12_HashTableApp
+   - Input: Z n, then n words (uppercase A–Z). Output: a closed-hashing table (size Z) using linear probing; empty slots printed as NULL.
+
 ### Lab 4 - Brute Force & Exhaustive Search
 ```bash
 # Compile
@@ -102,10 +144,23 @@ Algorithm_Lab/
 │                              │       ├── BinPackingMain.java
 │                              │       ├── BinPackingMainModify.java
 │                              │       └── [other files...]
-│                              └── lab8/
-│                                  ├── EOD.java
-│                                  ├── Jaothi.java
-│                                  └── Zigzag.java
+│                              ├── lab8/
+│                              │   ├── EOD.java
+│                              │   ├── Jaothi.java
+│                              │   └── Zigzag.java
+│                              └── PracticeM2/
+│                                  ├── Q01_NextPermutation.java
+│                                  ├── Q02_Android.java
+│                                  ├── Q03_PancakeSort.java
+│                                  ├── Q04_QuickSelectApp.java
+│                                  ├── Q05_BottomUpMergeSortApp.java
+│                                  ├── Q06_QuickSortApp.java
+│                                  ├── Q07_2DClosestPairApp.java
+│                                  ├── Q08_MakeAWish.java
+│                                  ├── Q09_PresortedUniquenessApp.java
+│                                  ├── Q10_HeapSortApp.java
+│                                  ├── Q11_Lottery.java
+│                                  └── Q12_HashTableApp.java
 └── README.md
 ```
 
@@ -159,4 +214,17 @@ java -cp bin th.ac.kmutt.cpe.algorithm.wisit.lab.lab8.EOD
 # Then input:
 # - Number of bombs (n)
 # - Value of each bomb (n values)
+```
+
+### Practice M.2 Q04 – QuickSelect (k-th smallest)
+```bash
+# Compile
+javac -sourcepath src -d bin src\th\ac\kmutt\cpe\algorithm\wisit\lab\PracticeM2\*.java
+
+# Run
+java -cp bin th.ac.kmutt.cpe.algorithm.wisit.lab.PracticeM2.Q04_QuickSelectApp
+
+# Then input:
+# - Number of elements (n) and k (1-based position)
+# - n integers (space-separated or newlines)
 ```

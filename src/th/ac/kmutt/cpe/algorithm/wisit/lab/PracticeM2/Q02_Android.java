@@ -3,7 +3,7 @@ package th.ac.kmutt.cpe.algorithm.wisit.lab.PracticeM2;
 import java.util.*;
 import th.ac.kmutt.cpe.algorithm.wisit.sorting.LexicographicPermute;
 
-public class Android {
+public class Q02_Android {
 
     // แปลง permutation 1..n ให้เป็นสตริงตัวอักษร 'A'.. ตามลำดับ
     private static String toAlphaString(List<Integer> perm) {
@@ -27,7 +27,8 @@ public class Android {
         return true;
     }
 
-    // คืนค่าอันดับแบบ 1-indexed ของสตริง perm ในลำดับ lexicographic โดยอาศัยตัวสร้าง LexicographicPermute
+    // คืนค่าอันดับแบบ 1-indexed ของสตริง perm ในลำดับ lexicographic
+    // โดยอาศัยตัวสร้าง LexicographicPermute
     private static long rankLexicographic(String perm, int n) {
         if (!isValid(perm, n))
             return -1L;

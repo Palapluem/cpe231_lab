@@ -2,7 +2,7 @@ package th.ac.kmutt.cpe.algorithm.wisit.lab.PracticeM2;
 
 import java.util.*;
 
-public class PancakeSort {
+public class Q03_PancakeSort {
     private static void flip(int[] a, int k) {
         int i = 0, j = k - 1;
         while (i < j) {

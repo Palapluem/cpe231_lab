@@ -3,7 +3,7 @@ package th.ac.kmutt.cpe.algorithm.wisit.lab.PracticeM2;
 import java.util.*;
 import th.ac.kmutt.cpe.algorithm.wisit.sorting.QuickSelect;
 
-public class QuickSelectApp {
+public class Q04_QuickSelectApp {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 

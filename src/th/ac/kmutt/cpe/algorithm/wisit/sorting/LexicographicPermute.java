@@ -1,4 +1,4 @@
-package th.ac.kmutt.cpe.algorithms.wisit2.sorting;
+package th.ac.kmutt.cpe.algorithm.wisit.sorting;
 
 public class LexicographicPermute {
     public static int lexitographicPermute(String s) {

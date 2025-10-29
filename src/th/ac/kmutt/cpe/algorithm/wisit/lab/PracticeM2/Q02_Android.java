@@ -1,7 +1,7 @@
-package th.ac.kmutt.cpe.algorithms.wisit2.practiceM2;
+package th.ac.kmutt.cpe.algorithm.wisit.lab.PracticeM2;
 
 import java.util.*;
-import th.ac.kmutt.cpe.algorithms.wisit2.sorting.LexicographicPermute;
+import th.ac.kmutt.cpe.algorithm.wisit.sorting.LexicographicPermute;
 
 public class Q02_Android {
     public static void main(String[] args) {

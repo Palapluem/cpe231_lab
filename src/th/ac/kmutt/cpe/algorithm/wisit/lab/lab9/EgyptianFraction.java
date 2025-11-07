@@ -3,17 +3,6 @@ package th.ac.kmutt.cpe.algorithm.wisit.lab.lab9;
 import java.util.Scanner;
 
 public class EgyptianFraction {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Please insert a numerator : ");
-        int numerator = sc.nextInt();
-        System.out.print("Please insert a denominator : ");
-        int denominator = sc.nextInt();
-        System.out.print("Result of Egyptian Fraction from " + numerator + "/" + denominator + " : ");
-        toEgyptian(numerator, denominator);
-        sc.close();
-    }
-
     private static void toEgyptian(int numerator, int denominator) {
         if (denominator == 0 || numerator == 0) {
             return;
@@ -41,4 +30,14 @@ public class EgyptianFraction {
         toEgyptian(numerator * n - denominator, denominator * n);
     }
 
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Please insert a numerator : ");
+        int numerator = sc.nextInt();
+        System.out.print("Please insert a denominator : ");
+        int denominator = sc.nextInt();
+        System.out.print("Result of Egyptian Fraction from " + numerator + "/" + denominator + " : ");
+        toEgyptian(numerator, denominator);
+        sc.close();
+    }
 }

@@ -148,6 +148,10 @@ Algorithm_Lab/
 │                              │   ├── EOD.java
 │                              │   ├── Jaothi.java
 │                              │   └── Zigzag.java
+│                              ├── lab9/
+│                              │   ├── EgyptianFraction.java
+│                              │   ├── HuffmanCoding.java
+│                              │   └── Lab09-Greedy.pdf
 │                              └── PracticeM2/
 │                                  ├── Q01_NextPermutation.java
 │                                  ├── Q02_Android.java
@@ -214,6 +218,20 @@ java -cp bin th.ac.kmutt.cpe.algorithm.wisit.lab.lab8.EOD
 # Then input:
 # - Number of bombs (n)
 # - Value of each bomb (n values)
+```
+
+### Lab 9 - Greedy Algorithms
+```bash
+# Compile
+javac -sourcepath src -d bin src\th\ac\kmutt\cpe\algorithm\wisit\lab\lab9\*.java
+
+# Run - Huffman coding example
+java -cp bin th.ac.kmutt.cpe.algorithm.wisit.lab.lab9.HuffmanCoding
+
+# Run - Egyptian fraction example
+java -cp bin th.ac.kmutt.cpe.algorithm.wisit.lab.lab9.EgyptianFraction
+
+# Notes: see src/th/ac/kmutt/cpe/algorithm/wisit/lab/lab9/Lab09-Greedy.pdf for problem statements and exact I/O formats.
 ```
 
 ### Practice M.2 Q04 – QuickSelect (k-th smallest)

@@ -1,4 +1,4 @@
-package th.ac.kmutt.cpe.algorithms.wisit3.sorting;
+package th.ac.kmutt.cpe.algorithm.wisit.sorting;
 
 public class PancakeSort {
     private void flip(int[] a, int k) {

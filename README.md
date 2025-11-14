@@ -152,6 +152,11 @@ Algorithm_Lab/
 │                              │   ├── EgyptianFraction.java
 │                              │   ├── HuffmanCoding.java
 │                              │   └── Lab09-Greedy.pdf
+│                              ├── lab10/
+│                              │   ├── Internship.java
+│                              │   ├── in1.txt
+│                              │   ├── in2.txt
+│                              │   └── Lab10-IterativeImprovement.pdf
 │                              └── PracticeM2/
 │                                  ├── Q01_NextPermutation.java
 │                                  ├── Q02_Android.java
@@ -232,6 +237,27 @@ java -cp bin th.ac.kmutt.cpe.algorithm.wisit.lab.lab9.HuffmanCoding
 java -cp bin th.ac.kmutt.cpe.algorithm.wisit.lab.lab9.EgyptianFraction
 
 # Notes: see src/th/ac/kmutt/cpe/algorithm/wisit/lab/lab9/Lab09-Greedy.pdf for problem statements and exact I/O formats.
+```
+
+### Lab 10 - Iterative Improvement (Stable Matching)
+```bash
+# Compile
+javac -sourcepath src -d bin src\th\ac\kmutt\cpe\algorithm\wisit\lab\lab10\*.java
+
+# Run - Gale-Shapley Algorithm for Internship Matching
+java -cp bin th.ac.kmutt.cpe.algorithm.wisit.lab.lab10.Internship
+
+# With input file
+Get-Content src\th\ac\kmutt\cpe\algorithm\wisit\lab\lab10\in1.txt | java -cp bin th.ac.kmutt.cpe.algorithm.wisit.lab.lab10.Internship
+
+# Input format:
+# - n (number of companies and students)
+# - n lines: company preference lists (n integers each)
+# - n lines: student preference lists (n integers each)
+
+# Output: Stable matching pairs (company index, student index)
+
+# Notes: see src/th/ac/kmutt/cpe/algorithm/wisit/lab/lab10/Lab10-IterativeImprovement.pdf for problem statements.
 ```
 
 ### Practice M.2 Q04 – QuickSelect (k-th smallest)

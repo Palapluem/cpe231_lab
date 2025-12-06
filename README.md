@@ -18,48 +18,6 @@ java -cp bin th.ac.kmutt.cpe.algorithm.wisit.lab.<folder_and_filename>
 
 ## Available Labs
 
-### Practice Exercise M.2 – Strategies, D&C, and Applications
-
-Compile all M.2 apps:
-
-```bash
-javac -sourcepath src -d bin src\th\ac\kmutt\cpe\algorithm\wisit\lab\PracticeM2\*.java
-```
-
-Run any app (replace <AppClass>):
-
-```bash
-java -cp bin th.ac.kmutt.cpe.algorithm.wisit.lab.PracticeM2.<AppClass>
-```
-
-Available app classes (renamed with question numbers) and I/O notes:
-
-- Q01_NextPermutation
-   - Input: n then n integers. Output: next lexicographic permutation or the first if none.
-- Q02_Android
-   - Input per worksheet; prints the minimal steps/unlock check as specified.
-- Q03_PancakeSort
-   - Input: n then n integers. Output: ascending order on one line.
-- Q04_QuickSelectApp
-   - Input: n, k, then n integers. Output: k-th smallest value.
-- Q05_BottomUpMergeSortApp
-   - Input: n then n integers. Output: ascending order on one line.
-- Q06_QuickSortApp
-   - Input: n then n integers. Output: ascending order on one line.
-- Q07_2DClosestPairApp
-   - Input: n then n pairs x y. Output: minimum distance printed with 3 decimals.
-- Q08_MakeAWish
-   - Input: n then n integers. Output: maximum subarray sum (long).
-- Q09_PresortedUniquenessApp
-   - Input: n then n integers. Output: unique values in ascending order.
-- Q10_HeapSortApp
-   - Input: n then n integers. Output line 1: array after Min-Heap bottom-up heapify; line 2: numbers in descending order.
-- Q11_Lottery
-   - Input: m n, then student ticket string (length m) and prize pattern (length n).
-   - Output: YES <shiftCount> <firstIndex> if matched, else NO <shiftCount> -1.
-- Q12_HashTableApp
-   - Input: Z n, then n words (uppercase A–Z). Output: a closed-hashing table (size Z) using linear probing; empty slots printed as NULL.
-
 ### Lab 4 - Brute Force & Exhaustive Search
 ```bash
 # Compile
@@ -114,6 +72,90 @@ java -cp bin th.ac.kmutt.cpe.algorithm.wisit.lab.lab8.Jaothi
 java -cp bin th.ac.kmutt.cpe.algorithm.wisit.lab.lab8.EOD
 ```
 
+### Lab 9 - Greedy Algorithms
+```bash
+# Compile
+javac -sourcepath src -d bin src\th\ac\kmutt\cpe\algorithm\wisit\lab\lab9\*.java
+
+# Run - Huffman coding example
+java -cp bin th.ac.kmutt.cpe.algorithm.wisit.lab.lab9.HuffmanCoding
+
+# Run - Egyptian fraction example
+java -cp bin th.ac.kmutt.cpe.algorithm.wisit.lab.lab9.EgyptianFraction
+```
+
+### Lab 10 - Iterative Improvement (Stable Matching)
+```bash
+# Compile
+javac -sourcepath src -d bin src\th\ac\kmutt\cpe\algorithm\wisit\lab\lab10\*.java
+
+# Run - Gale-Shapley Algorithm for Internship Matching
+java -cp bin th.ac.kmutt.cpe.algorithm.wisit.lab.lab10.Internship
+```
+
+### Practice Exercise M.2 – Strategies, D&C, and Applications
+
+Compile all M.2 apps:
+
+```bash
+javac -sourcepath src -d bin src\th\ac\kmutt\cpe\algorithm\wisit\PracticeM2\*.java
+```
+
+Run any app (replace <AppClass>):
+
+```bash
+java -cp bin th.ac.kmutt.cpe.algorithm.wisit.PracticeM2.<AppClass>
+```
+
+Available app classes (renamed with question numbers) and I/O notes:
+
+- Q01_NextPermutation
+   - Input: n then n integers. Output: next lexicographic permutation or the first if none.
+- Q02_Android
+   - Input per worksheet; prints the minimal steps/unlock check as specified.
+- Q03_PancakeSort
+   - Input: n then n integers. Output: ascending order on one line.
+- Q04_QuickSelectApp
+   - Input: n, k, then n integers. Output: k-th smallest value.
+- Q05_BottomUpMergeSortApp
+   - Input: n then n integers. Output: ascending order on one line.
+- Q06_QuickSortApp
+   - Input: n then n integers. Output: ascending order on one line.
+- Q07_2DClosestPairApp
+   - Input: n then n pairs x y. Output: minimum distance printed with 3 decimals.
+- Q08_MakeAWish
+   - Input: n then n integers. Output: maximum subarray sum (long).
+- Q09_PresortedUniquenessApp
+   - Input: n then n integers. Output: unique values in ascending order.
+- Q10_HeapSortApp
+   - Input: n then n integers. Output line 1: array after Min-Heap bottom-up heapify; line 2: numbers in descending order.
+- Q11_Lottery
+   - Input: m n, then student ticket string (length m) and prize pattern (length n).
+   - Output: YES <shiftCount> <firstIndex> if matched, else NO <shiftCount> -1.
+- Q12_HashTableApp
+   - Input: Z n, then n words (uppercase A–Z). Output: a closed-hashing table (size Z) using linear probing; empty slots printed as NULL.
+
+### Practice Exercise M.3
+```bash
+# Compile
+javac -sourcepath src -d bin src\th\ac\kmutt\cpe\algorithm\wisit\PracticeM3\*.java src\th\ac\kmutt\cpe\algorithm\wisit\PracticeM3\Strategy\*.java src\th\ac\kmutt\cpe\algorithm\wisit\PracticeM3\image\*.java
+
+# Run Wee (Partition Problem)
+java -cp bin th.ac.kmutt.cpe.algorithm.wisit.PracticeM3.Wee
+
+# Run GrilledGoose (Unbounded Knapsack Variant)
+java -cp bin th.ac.kmutt.cpe.algorithm.wisit.PracticeM3.GrilledGoose
+
+# Run DragQueen (String Rearrangement)
+java -cp bin th.ac.kmutt.cpe.algorithm.wisit.PracticeM3.DragQueen
+
+# Run TheSalesman (TSP Longest Path)
+java -cp bin th.ac.kmutt.cpe.algorithm.wisit.PracticeM3.TheSalesman
+
+# Run Image Processing
+java -cp bin th.ac.kmutt.cpe.algorithm.wisit.PracticeM3.Strategy.ImageMain
+```
+
 ## Project Structure
 
 ```
@@ -127,49 +169,59 @@ Algorithm_Lab/
 │                   └── algorithm/
 │                       └── wisit/
 │                           ├── Main.java
-│                           └── lab/
-│                              ├── lab4/
-│                              │   └── Beads.java
-│                              ├── lab5/
-│                              │   └── fee/
-│                              │       └── Fee.java
-│                              ├── lab6/
-│                              │   └── binPacking/
-│                              │       ├── BinPackingMain.java
-│                              │       ├── Bin.java
-│                              │       ├── BoxSize.java
-│                              │       └── [other files...]
-│                              ├── lab7/
-│                              │   └── binPackingAddMethod/
-│                              │       ├── BinPackingMain.java
-│                              │       ├── BinPackingMainModify.java
-│                              │       └── [other files...]
-│                              ├── lab8/
-│                              │   ├── EOD.java
-│                              │   ├── Jaothi.java
-│                              │   └── Zigzag.java
-│                              ├── lab9/
-│                              │   ├── EgyptianFraction.java
-│                              │   ├── HuffmanCoding.java
-│                              │   └── Lab09-Greedy.pdf
-│                              ├── lab10/
-│                              │   ├── Internship.java
-│                              │   ├── in1.txt
-│                              │   ├── in2.txt
-│                              │   └── Lab10-IterativeImprovement.pdf
-│                              └── PracticeM2/
-│                                  ├── Q01_NextPermutation.java
-│                                  ├── Q02_Android.java
-│                                  ├── Q03_PancakeSort.java
-│                                  ├── Q04_QuickSelectApp.java
-│                                  ├── Q05_BottomUpMergeSortApp.java
-│                                  ├── Q06_QuickSortApp.java
-│                                  ├── Q07_2DClosestPairApp.java
-│                                  ├── Q08_MakeAWish.java
-│                                  ├── Q09_PresortedUniquenessApp.java
-│                                  ├── Q10_HeapSortApp.java
-│                                  ├── Q11_Lottery.java
-│                                  └── Q12_HashTableApp.java
+│                           ├── lab/
+│                           │   ├── lab4/
+│                           │   │   └── Beads.java
+│                           │   ├── lab5/
+│                           │   │   └── fee/
+│                           │       └── Fee.java
+│                           │   ├── lab6/
+│                           │   │   └── binPacking/
+│                           │       ├── BinPackingMain.java
+│                           │       └── [other files...]
+│                           │   ├── lab7/
+│                           │   │   └── binPackingAddMethod/
+│                           │       ├── BinPackingMain.java
+│                           │       └── [other files...]
+│                           │   ├── lab8/
+│                           │   │   ├── EOD.java
+│                           │   │   ├── Jaothi.java
+│                           │   │   └── Zigzag.java
+│                           │   ├── lab9/
+│                           │   │   ├── EgyptianFraction.java
+│                           │   │   ├── HuffmanCoding.java
+│                           │   │   └── Lab09-Greedy.pdf
+│                           │   └── lab10/
+│                           │       ├── Internship.java
+│                           │       └── Lab10-IterativeImprovement.pdf
+│                           ├── PracticeM2/
+│                           │   ├── Q01_NextPermutation.java
+│                           │   ├── Q02_Android.java
+│                           │   ├── Q03_PancakeSort.java
+│                           │   ├── Q04_QuickSelectApp.java
+│                           │   ├── Q05_BottomUpMergeSortApp.java
+│                           │   ├── Q06_QuickSortApp.java
+│                           │   ├── Q07_2DClosestPairApp.java
+│                           │   ├── Q08_MakeAWish.java
+│                           │   ├── Q09_PresortedUniquenessApp.java
+│                           │   ├── Q10_HeapSortApp.java
+│                           │   ├── Q11_Lottery.java
+│                           │   └── Q12_HashTableApp.java
+│                           ├── PracticeM3/
+│                           │   ├── Strategy/
+│                           │   │   ├── DragQueenAlgo.java
+│                           │   │   ├── GrilledGooseAlgo.java
+│                           │   │   ├── ImageMain.java
+│                           │   │   ├── TheSalesmanAlgo.java
+│                           │   │   └── WeeAlgo.java
+│                           │   ├── image/
+│                           │   │   └── Image.java
+│                           │   ├── DragQueen.java
+│                           │   ├── GrilledGoose.java
+│                           │   ├── TheSalesman.java
+│                           │   └── Wee.java
+│                           ├── searching/
+│                           └── sorting/
 └── README.md
 ```
 
@@ -263,12 +315,25 @@ Get-Content src\th\ac\kmutt\cpe\algorithm\wisit\lab\lab10\in1.txt | java -cp bin
 ### Practice M.2 Q04 – QuickSelect (k-th smallest)
 ```bash
 # Compile
-javac -sourcepath src -d bin src\th\ac\kmutt\cpe\algorithm\wisit\lab\PracticeM2\*.java
+javac -sourcepath src -d bin src\th\ac\kmutt\cpe\algorithm\wisit\PracticeM2\*.java
 
 # Run
-java -cp bin th.ac.kmutt.cpe.algorithm.wisit.lab.PracticeM2.Q04_QuickSelectApp
+java -cp bin th.ac.kmutt.cpe.algorithm.wisit.PracticeM2.Q04_QuickSelectApp
 
 # Then input:
 # - Number of elements (n) and k (1-based position)
 # - n integers (space-separated or newlines)
+```
+
+### Practice M.3 - Grilled Goose (DP)
+```bash
+# Compile
+javac -sourcepath src -d bin src\th\ac\kmutt\cpe\algorithm\wisit\PracticeM3\*.java src\th\ac\kmutt\cpe\algorithm\wisit\PracticeM3\Strategy\*.java
+
+# Run
+java -cp bin th.ac.kmutt.cpe.algorithm.wisit.PracticeM3.GrilledGoose
+
+# Then input:
+# - Number of cities and paths
+# - Path details (u v w)
 ```

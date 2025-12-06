@@ -334,6 +334,6 @@ javac -sourcepath src -d bin src\th\ac\kmutt\cpe\algorithm\wisit\PracticeM3\*.ja
 java -cp bin th.ac.kmutt.cpe.algorithm.wisit.PracticeM3.GrilledGoose
 
 # Then input:
-# - Number of cities and paths
-# - Path details (u v w)
+# - Max value (x) and number of options (n)
+# - n integers (option values)
 ```

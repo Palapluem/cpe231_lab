@@ -1,4 +1,4 @@
-package th.ac.kmutt.cpe.algorithm.wisit.PracticeM3.Strategy;
+package th.ac.kmutt.cpe.algorithm.wisit.PracticeM3;
 
 import th.ac.kmutt.cpe.algorithm.wisit.PracticeM3.image.Image;
 
@@ -17,6 +17,6 @@ public class ImageMain {
         brighten.export("meme_brighten.jpg");
         darken.export("meme_darken.jpg");
 
-        System.out.println("Done!");
+        System.out.println("\nDone!");
     }
 }

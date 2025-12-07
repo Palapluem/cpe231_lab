@@ -153,7 +153,7 @@ java -cp bin th.ac.kmutt.cpe.algorithm.wisit.PracticeM3.DragQueen
 java -cp bin th.ac.kmutt.cpe.algorithm.wisit.PracticeM3.TheSalesman
 
 # Run Image Processing
-java -cp bin th.ac.kmutt.cpe.algorithm.wisit.PracticeM3.Strategy.ImageMain
+java -cp bin th.ac.kmutt.cpe.algorithm.wisit.PracticeM3.ImageMain
 ```
 
 ## Project Structure

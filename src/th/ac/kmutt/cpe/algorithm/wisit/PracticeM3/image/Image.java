@@ -55,7 +55,8 @@ public class Image {
         try {
             // CHANGE the value into your lowercase name in LEB2
             String yourName = "wisit";
-            ImageIO.write(img, "png", new File("src/th/ac/kmutt/cpe/algorithm/" + yourName + "/" + fileName));
+            ImageIO.write(img, "png",
+                    new File("src/th/ac/kmutt/cpe/algorithm/" + yourName + "/PracticeM3/image/" + fileName));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -88,7 +89,7 @@ public class Image {
 
         for (int y = 0; y < h; y++) {
             for (int x = 0; x < w; x++) {
-                if (pixels[y][x] + intensity > 255) {
+                if (img.pixels[y][x] + intensity > 255) {
                     pixels[y][x] = 255;
                 } else {
                     pixels[y][x] = img.pixels[y][x] + intensity;
@@ -103,7 +104,7 @@ public class Image {
 
         for (int y = 0; y < h; y++) {
             for (int x = 0; x < w; x++) {
-                if (pixels[y][x] - intensity < 0) {
+                if (img.pixels[y][x] - intensity < 0) {
                     pixels[y][x] = 0;
                 } else {
                     pixels[y][x] = img.pixels[y][x] - intensity;

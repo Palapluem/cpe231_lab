@@ -112,4 +112,62 @@ public class Image {
             }
         }
     }
+
+    public void rotateRight(Image img) {
+        int h = img.getHeight();
+        int w = img.getWidth();
+
+        // Swap dimensions: new height = old width, new width = old height
+        this.height = w;
+        this.width = h;
+        this.pixels = new int[this.height][this.width];
+
+        for (int y = 0; y < h; y++) {
+            for (int x = 0; x < w; x++) {
+                // Rotate 90 degrees clockwise: (y, x) -> (x, h - 1 - y)
+                this.pixels[x][h - 1 - y] = img.pixels[y][x];
+            }
+        }
+    }
+
+    public void rotateLeft(Image img) {
+        int h = img.getHeight();
+        int w = img.getWidth();
+
+        // Swap dimensions
+        this.height = w;
+        this.width = h;
+        this.pixels = new int[this.height][this.width];
+
+        for (int y = 0; y < h; y++) {
+            for (int x = 0; x < w; x++) {
+                // Rotate 90 degrees counter-clockwise: (y, x) -> (w - 1 - x, y)
+                this.pixels[w - 1 - x][y] = img.pixels[y][x];
+            }
+        }
+    }
+
+    public void reflectHorizontal(Image img) {
+        int h = img.getHeight();
+        int w = img.getWidth();
+
+        for (int y = 0; y < h; y++) {
+            for (int x = 0; x < w; x++) {
+                // Flip horizontally: (y, x) -> (y, w - 1 - x)
+                this.pixels[y][w - 1 - x] = img.pixels[y][x];
+            }
+        }
+    }
+
+    public void reflectVertical(Image img) {
+        int h = img.getHeight();
+        int w = img.getWidth();
+
+        for (int y = 0; y < h; y++) {
+            for (int x = 0; x < w; x++) {
+                // Flip vertically: (y, x) -> (h - 1 - y, x)
+                this.pixels[h - 1 - y][x] = img.pixels[y][x];
+            }
+        }
+    }
 }
